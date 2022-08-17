@@ -4,6 +4,7 @@ const cors = require('cors')
 require("dotenv").config();
 
 const heroesRouter = require('./routes/api/heroes');
+const path = require("path");
 
 const app = express()
 
@@ -12,7 +13,7 @@ const formatsLogger = app.get('env') === 'development' ? 'dev' : 'short'
 app.use(logger(formatsLogger))
 app.use(cors())
 app.use(express.json())
-app.use(express.static("public"));
+app.use(express.static(path.join(__dirname, '/public')));
 
 app.use('/api/heroes', heroesRouter)
 
