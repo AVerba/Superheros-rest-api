@@ -18,7 +18,7 @@ const add = async (req, res) => {
         const newName = `${ObjectID()}.${extension}`;
         const uploadPath = path.join(avatarsDir, newName);
         await fs.rename(tempPath, uploadPath);
-        const imageURL = path.join( "avatars", newName);
+        const imageURL = path.join("public", "avatars", newName);
 
 
         const result = await Hero.create({
