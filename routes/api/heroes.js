@@ -11,7 +11,6 @@ router.get('/', ctrlWrapper((ctrlHeroes.getAll)));
 
 router.get("/:id", isValidId, ctrlWrapper(ctrlHeroes.getById));
 //
-// router.post('/', validation(schemas.addSchema), ctrlWrapper(ctrlHeroes.add));
 router.post('/', upload.single("imageURL"),  ctrlWrapper(ctrlHeroes.add));
 //
 router.delete('/:id',isValidId, ctrlWrapper(ctrlHeroes.removeById));
