@@ -4,7 +4,7 @@ const {Hero} = require('../../models/hero')
 
 const removeById = async (req, res) => {
     const {id} = req.params;
-    const result = await Hero.findOneAndDelete(id);
+    const result = await Hero.findByIdAndRemove(id);
     if (!result) {
         throw createError(404)
     }
